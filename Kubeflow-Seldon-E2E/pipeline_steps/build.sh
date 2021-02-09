@@ -1,0 +1,61 @@
+#!/bin/bash
+export EXTRACT_STEP_IMAGE=features_extractor
+export CLEAN_STEP_IMAGE=clean_text_transformer
+export TOKENIZE_STEP_IMAGE=spacy_tokenizer
+export VECTORIZE_STEP_IMAGE=tfidf_vectorizer
+export PREDICT_STEP_IMAGE=lr_text_classifier
+
+
+echo Image Tag?
+read TAG
+
+export TAG=${TAG}
+
+download_s2i(){
+   s2i > /dev/null 2>&1
+   if [ $? -eq 0 ]; then
+      echo "s2i Installed..\n"
+   else
+     echo "s2i Installing....\n"
+     wget https://github.com/openshift/source-to-image/releases/download/v1.3.1/source-to-image-v1.3.1-a5a77147-linux-amd64.tar.gz  
+     tar xf source-to-image-v1.3.1-a5a77147-linux-amd64.tar.gz 
+     cp s2i /bin
+     rm -rf source-to-image-v1.3.1-a5a77147-linux-amd64.tar.gz s2i sti
+   fi
+
+}
+
+build_pipeline_images(){
+        for i in $(ls -d */); 
+        do 
+		  echo "#################################################\n\n"
+          bash ${i}build_image.sh
+		  echo "#################################################\n\n"
+        done
+}
+
+is_login=`cat ~/.docker/config.json | jq -r ".auths[].auth"`
+if [ -z $is_login ]
+then
+    echo Enter Username?
+    read USERNAME
+    export USERNAME=${USERNAME}
+    echo Enter Password?
+    read PASSWORD
+    export PASSWORD=${PASSWORD}
+    docker login --username=$USERNAME --password=$PASSWORD $REGISTRY
+    if [ $? -eq 0 ]; then
+      echo Login Successful.
+      download_s2i
+      build_pipeline_images
+    else
+      echo Login Failed.
+      exit 1
+    fi
+else
+   echo Enter Username?
+   read USERNAME
+   export USERNAME=${USERNAME}
+   download_s2i
+   build_pipeline_images
+fi
