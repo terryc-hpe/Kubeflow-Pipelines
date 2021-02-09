@@ -26,15 +26,21 @@ download_s2i(){
 }
 
 build_pipeline_images(){
-        for i in $(ls -d */); 
-        do 
-		  echo "#################################################\n\n"
-          bash ${i}build_image.sh
-		  echo "#################################################\n\n"
-        done
+  for i in $(ls -d */); 
+    do 
+      echo "#################################################"
+      bash ${i}build_image.sh
+      echo "#################################################"
+    done
 }
 
-is_login=`cat ~/.docker/config.json | jq -r ".auths[].auth"`
+FILE=~/.docker/config.json
+if [ -f "$FILE" ]; then
+    is_login=`cat ~/.docker/config.json  | jq -r ".auths[].auth"`
+else
+    is_login='' 
+fi
+
 if [ -z $is_login ]
 then
     echo Enter Username?
