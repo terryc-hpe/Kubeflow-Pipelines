@@ -67,7 +67,7 @@ else
 fi
 
 echo "######################################################"
-echo "Docker images for Kubeflow Pipeline steps:\n\n"
+echo -e "Docker images for Kubeflow Pipeline steps:\n\n"
 echo EXTRACT_STEP_IMAGE=${EXTRACT_STEP_IMAGE}:${TAG}
 echo CLEAN_STEP_IMAGE=${CLEAN_STEP_IMAGE}:${TAG}
 echo TOKENIZE_STEP_IMAGE=${TOKENIZE_STEP_IMAGE}:${TAG}
