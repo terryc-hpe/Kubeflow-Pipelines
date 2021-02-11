@@ -169,18 +169,39 @@ Copy the content of **mxnet-mnist-pvc.yaml** and submit the experiment from Kati
 ## Experiment Screenshots
 ### HyperParameter Tuning Tab
 ![HyperParameter Tuning Tab](images/HyperParameterTuningTab.PNG?raw=true "HyperParameter Tuning Tab")
+
 ### HyperParameter Monitor
 ![Alt text](images/HyperParameterMonitor.PNG?raw=true "HyperParameter Monitor")
+
 ### Trials Started
 ![Alt text](images/TrialsStarted.PNG?raw=true "Trials Started")
+
 ### Graph Started
 ![Alt text](images/GraphStarted.PNG?raw=true "Graph Started")
+
 ### Few Trials Finshed
 ![Alt text](images/FewTrialsFinshed.PNG?raw=true "Few Trials Finshed")
+
 ### All Trials Succeeded
 ![Alt text](images/All12TrialsSucceeded.PNG?raw=true "All Trials Succeeded")
+
 ### Final Plot
 ![Alt text](images/finalplot.png?raw=true "Final Plot")
+
 ### Best
 ![Alt text](images/Best.PNG?raw=true "Best")
+
+## Build the Docker image.
+```bash
+git clone https://github.com/SANDataHPE/Kubeflow-Pipelines.git
+cd Kubeflow-Pipelines/katib-job-mxnet-mnist-pvc
+
+#Building the Docker Image.
+docker build -t <USERNAME>/<NAME>:<TAG> .
+
+#Please login before pushing the image.
+docker push <USERNAME>/<NAME>:<TAG> .
+```
+
+
 
