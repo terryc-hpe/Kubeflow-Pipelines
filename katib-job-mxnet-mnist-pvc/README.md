@@ -23,7 +23,7 @@ spec:
 ```
 Create PVC:
 ```bash
-kubectl create -n dev1 -f http://
+kubectl create -n dev1 -f https://raw.githubusercontent.com/SANDataHPE/Kubeflow-Pipelines/main/katib-job-mxnet-mnist-pvc/mxnet-mnist-pvc.yaml
 ```
 
 ## Utility Pod to copy dataset to Persistent Volume
@@ -49,7 +49,7 @@ spec:
 ```
 Create utility pod:
 ```bash
-kubectl create -n dev1 -f http://
+kubectl create -n dev1 -f https://raw.githubusercontent.com/SANDataHPE/Kubeflow-Pipelines/main/katib-job-mxnet-mnist-pvc/dataaccess.yaml
 ```
 ## Prepare dataset
 * **_Non Air Gap Enviornment/Proxy Enviornment_**
