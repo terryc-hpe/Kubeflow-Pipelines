@@ -93,7 +93,7 @@ kubectl create -n dev1 -f https://raw.githubusercontent.com/SANDataHPE/Kubeflow-
 
 ## Create Experiment
 
-Content of **mxnet-mnist-pvc.yaml**
+Content of **mxnet-mnist-pvc-experiment.yaml**
 ```yaml
 apiVersion: "kubeflow.org/v1beta1"
 kind: Experiment
@@ -164,7 +164,7 @@ spec:
                 restartPolicy: Never
 
 ```
-Copy the content of **mxnet-mnist-pvc.yaml** and submit the experiment from Katib HyperParameter Tunning tab in Kubeflow UI. 
+Copy the content of **mxnet-mnist-pvc-experiment.yaml** and submit the experiment from Katib HyperParameter Tunning tab in Kubeflow UI. 
 
 ## Experiment Screenshots
 ### HyperParameter Tuning Tab
@@ -202,6 +202,8 @@ docker build -t <USERNAME>/<NAME>:<TAG> .
 #Please login before pushing the image.
 docker push <USERNAME>/<NAME>:<TAG>
 ```
+
+Don't forget to update the image tag in **mxnet-mnist-pvc-experiment.yaml** YAML before submitting the experiment.
 
 
 
