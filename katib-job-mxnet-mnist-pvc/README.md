@@ -164,6 +164,7 @@ spec:
                 restartPolicy: Never
 
 ```
+Login to Kubeflow using dev1 user.
 Copy the content of **mxnet-mnist-pvc-experiment.yaml** and submit the experiment from Katib HyperParameter Tunning tab in Kubeflow UI. 
 
 ## Experiment Screenshots
