@@ -200,7 +200,7 @@ cd Kubeflow-Pipelines/katib-job-mxnet-mnist-pvc
 docker build -t <USERNAME>/<NAME>:<TAG> .
 
 #Please login before pushing the image.
-docker push <USERNAME>/<NAME>:<TAG> .
+docker push <USERNAME>/<NAME>:<TAG>
 ```
 
 
