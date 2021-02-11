@@ -168,7 +168,7 @@ Copy the content of **mxnet-mnist-pvc.yaml** and submit the experiment from Kati
 
 ## Experiment Screenshots
 **HyperParameter Tuning Tab
-![Alt text](images/HyperParameterTuningTab.PNG?raw=true "HyperParameter Tuning Tab")
+![HyperParameter Tuning Tab](images/HyperParameterTuningTab.PNG?raw=true "HyperParameter Tuning Tab")
 **HyperParameter Monitor
 ![Alt text](images/HyperParameterMonitor.PNG?raw=true "HyperParameter Monitor")
 **Trials Started
