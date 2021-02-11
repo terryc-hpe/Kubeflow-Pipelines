@@ -1,0 +1,67 @@
+apiVersion: "kubeflow.org/v1beta1"
+kind: Experiment
+metadata:
+  namespace: dev1
+  name: mxnet-mnist-pvc
+spec:
+  objective:
+    type: maximize
+    goal: 0.99
+    objectiveMetricName: Validation-accuracy
+    additionalMetricNames:
+      - Train-accuracy
+  algorithm:
+    algorithmName: random
+  parallelTrialCount: 3
+  maxTrialCount: 13
+  maxFailedTrialCount: 3
+  parameters:
+    - name: --lr
+      parameterType: double
+      feasibleSpace:
+        min: "0.01"
+        max: "0.03"
+    - name: --num-layers
+      parameterType: int
+      feasibleSpace:
+        min: "2"
+        max: "5"
+    - name: --optimizer
+      parameterType: categorical
+      feasibleSpace:
+        list:
+          - sgd
+          - adam
+          - ftrl
+  trialTemplate:
+    goTemplate:
+        rawTemplate: |-
+          apiVersion: batch/v1
+          kind: Job
+          metadata:
+            name: {{.Trial}}
+            namespace: {{.NameSpace}}
+          spec:
+            template:
+              spec:
+                volumes:
+                  - name: dataset
+                    persistentVolumeClaim:
+                      claimName: mxnet-mnist-pvc
+                containers:
+                  - name: training-container
+                    image: ilovepython/katib-mxnet-mnist-pvc:v0.1
+                    command:
+                      - 'python3'
+                      - '/opt/mxnet-mnist/mxnet-mnist.py'
+                      - '--batch-size=64'
+                      - '--data-dir=/dataset/MXNET-MNIST'
+                      {{- with .HyperParameters}}
+                      {{- range .}}
+                      - "{{.Name}}={{.Value}}"
+                      {{- end}}
+                      {{- end}}
+                    volumeMounts:
+                      - mountPath: "/dataset"
+                        name: dataset
+                restartPolicy: Never
