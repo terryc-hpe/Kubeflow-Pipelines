@@ -167,20 +167,20 @@ spec:
 Copy the content of **mxnet-mnist-pvc.yaml** and submit the experiment from Katib HyperParameter Tunning tab in Kubeflow UI. 
 
 ## Experiment Screenshots
-**HyperParameter Tuning Tab
+### HyperParameter Tuning Tab
 ![HyperParameter Tuning Tab](images/HyperParameterTuningTab.PNG?raw=true "HyperParameter Tuning Tab")
-**HyperParameter Monitor
+### HyperParameter Monitor
 ![Alt text](images/HyperParameterMonitor.PNG?raw=true "HyperParameter Monitor")
-**Trials Started
+### Trials Started
 ![Alt text](images/TrialsStarted.PNG?raw=true "Trials Started")
-**Graph Started
+### Graph Started
 ![Alt text](images/GraphStarted.PNG?raw=true "Graph Started")
-**Few Trials Finshed
+### Few Trials Finshed
 ![Alt text](images/FewTrialsFinshed.PNG?raw=true "Few Trials Finshed")
-**All Trials Succeeded
+### All Trials Succeeded
 ![Alt text](images/All12TrialsSucceeded.PNG?raw=true "All Trials Succeeded")
-**Final Plot
+### Final Plot
 ![Alt text](images/finalplot.png?raw=true "Final Plot")
-**Best
+### Best
 ![Alt text](images/Best.PNG?raw=true "Best")
 
