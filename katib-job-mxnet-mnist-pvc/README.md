@@ -166,11 +166,11 @@ spec:
 ```
 
 ## Deployment
-#Kubeflow Katib UI
+# Kubeflow Katib UI
 Login to Kubeflow using dev1 user.
 Copy the content of **mxnet-mnist-pvc-experiment.yaml** and submit the experiment from Katib HyperParameter Tunning tab in Kubeflow UI. 
 
-#Through Jupyter Notebook
+# Through Jupyter Notebook
 Use this notebook: [Notebook](DeploymentUsingNotebook.ipynb)
 
 ## Experiment Screenshots
