@@ -95,7 +95,7 @@ kubectl create -n dev1 -f https://raw.githubusercontent.com/SANDataHPE/Kubeflow-
 
 Content of **mxnet-mnist-pvc-experiment.yaml**
 ```yaml
-apiVersion: "kubeflow.org/v1beta1"
+apiVersion: "kubeflow.org/v1alpha3"
 kind: Experiment
 metadata:
   namespace: dev1
