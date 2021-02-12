@@ -164,12 +164,17 @@ spec:
                 restartPolicy: Never
 
 ```
+
+## Deployment
+**Kubeflow Katib UI
 Login to Kubeflow using dev1 user.
 Copy the content of **mxnet-mnist-pvc-experiment.yaml** and submit the experiment from Katib HyperParameter Tunning tab in Kubeflow UI. 
+**Through Jupyter Notebook
+Use this notebook: ![HyperParameter Tuning Tab](images/HyperParameterTuningTab.PNG?raw=true "HyperParameter Tuning Tab")
 
 ## Experiment Screenshots
 ### HyperParameter Tuning Tab
-![HyperParameter Tuning Tab](images/HyperParameterTuningTab.PNG?raw=true "HyperParameter Tuning Tab")
+![HyperParameter Tuning Tab](DeploymentUsingNotebook.ipynb "Notebook")
 
 ### HyperParameter Monitor
 ![Alt text](images/HyperParameterMonitor.PNG?raw=true "HyperParameter Monitor")
